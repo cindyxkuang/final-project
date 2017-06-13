@@ -1,0 +1,4659 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <link rel= "stylesheet" href= "/static/style.css">
+         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"
+            integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ=="
+            crossorigin=""/>
+         <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"
+            integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="
+            crossorigin=""></script>
+    </head>
+    <body>
+        <header>
+            <h1>Mapping the alternative fuel stations of the U.S.</h1>
+            <div class="byline">
+                By Cindy Kuang
+            </div>
+        </header>
+        <div id="map" style="width:100%; height:500px;"></div>
+        <h5 class="curr_view">Currently showing 200 of 28541 total stations</h5>
+
+        <br>
+        <table border=1 cellpadding=7>
+            <tr>
+                <th>Station Name</th>
+                <th>Location</th>
+                <th>Fuel Type</th>
+                <th>Owner</th>
+                <th>Access</th>
+                <th>ID Number</th>
+            </tr>
+            
+            <tr>
+                <td><a href="17/">Alagasco Montgomery Operations Center</a></td>
+                <td>2951 Chestnut St<br>
+                    Montgomery, AL 36107</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private</td>
+                <td>17</td>
+            </tr>
+            
+            <tr>
+                <td><a href="42/">Clean Energy - PS Energy - Atlanta</a></td>
+                <td>340 Whitehall St<br>
+                    Atlanta, GA 30303</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>42</td>
+            </tr>
+            
+            <tr>
+                <td><a href="45/">Metropolitan Atlanta Rapid Transit Authority</a></td>
+                <td>2424 Piedmont Rd NE<br>
+                    Atlanta, GA 30324</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private - Government only</td>
+                <td>45</td>
+            </tr>
+            
+            <tr>
+                <td><a href="64/">United Parcel Service</a></td>
+                <td>270 Marvin Miller Dr<br>
+                    Atlanta, GA 30336</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Private</td>
+                <td>64</td>
+            </tr>
+            
+            <tr>
+                <td><a href="72/">Clean Energy - Texas Department of Transportation</a></td>
+                <td>7721A Washington St<br>
+                    Houston, TX 77007</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>72</td>
+            </tr>
+            
+            <tr>
+                <td><a href="73/">Arkansas Oklahoma Gas Corp</a></td>
+                <td>2100 S Waldron Rd<br>
+                    Fort Smith, AR 72903</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>73</td>
+            </tr>
+            
+            <tr>
+                <td><a href="81/">Clean Energy - Logan International Airport</a></td>
+                <td>14 Cottage St<br>
+                    Boston, MA 02128</td>
+                <td>Compressed Natural Gas</td>
+                <td>State government owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>81</td>
+            </tr>
+            
+            <tr>
+                <td><a href="83/">Clean Energy - West Roxbury - National Grid</a></td>
+                <td>201 Rivermoor St<br>
+                    West Roxbury, MA 02132</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>83</td>
+            </tr>
+            
+            <tr>
+                <td><a href="84/">Clean Energy - Everett - National Grid</a></td>
+                <td>12 Rover St<br>
+                    Everett, MA 02149</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>84</td>
+            </tr>
+            
+            <tr>
+                <td><a href="108/">Clean Energy - Greenpoint - National Grid</a></td>
+                <td>287 Maspeth Ave<br>
+                    Brooklyn, NY 11211</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>108</td>
+            </tr>
+            
+            <tr>
+                <td><a href="112/">Clean Energy - Canarsie - National Grid</a></td>
+                <td>8424 Ditmas Ave<br>
+                    Brooklyn, NY 11236</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>112</td>
+            </tr>
+            
+            <tr>
+                <td><a href="118/">City of Corpus Christi Gas Department</a></td>
+                <td>4225 S Port Ave<br>
+                    Corpus Christi, TX 78415</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Public - Card key after hours</td>
+                <td>118</td>
+            </tr>
+            
+            <tr>
+                <td><a href="124/">Con Edison - W 29th St Service Center</a></td>
+                <td>281 11th Ave<br>
+                    New York, NY 10001</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Card key at all times</td>
+                <td>124</td>
+            </tr>
+            
+            <tr>
+                <td><a href="125/">Con Edison - E 16th St Service Center</a></td>
+                <td>700 E 16th St<br>
+                    New York, NY 10009</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Card key at all times</td>
+                <td>125</td>
+            </tr>
+            
+            <tr>
+                <td><a href="129/">Con Edison - Van Nest Service Center</a></td>
+                <td>1615 Bronxdale Ave<br>
+                    Bronx, NY 10462</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Card key at all times</td>
+                <td>129</td>
+            </tr>
+            
+            <tr>
+                <td><a href="130/">Con Edison - Rye Service Center</a></td>
+                <td>178 Theodore Fremd Ave<br>
+                    Rye, NY 10580</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>TEMPORARILY UNAVAILABLE (Public - Card key at all times)</td>
+                <td>130</td>
+            </tr>
+            
+            <tr>
+                <td><a href="131/">Clean Energy - OGS Valhalla</a></td>
+                <td>7 Dana Rd<br>
+                    Valhalla, NY 10595</td>
+                <td>Compressed Natural Gas</td>
+                <td>State government owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>131</td>
+            </tr>
+            
+            <tr>
+                <td><a href="132/">Con Edison - College Point Service Center</a></td>
+                <td>124-15 31st Ave<br>
+                    Queens, NY 11354</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Card key at all times</td>
+                <td>132</td>
+            </tr>
+            
+            <tr>
+                <td><a href="134/">City of Enumclaw</a></td>
+                <td>2041 Railroad St<br>
+                    Enumclaw, WA 98022</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private</td>
+                <td>134</td>
+            </tr>
+            
+            <tr>
+                <td><a href="139/">Clean Energy - South Yarmouth - National Grid</a></td>
+                <td>127 Whites Path<br>
+                    South Yarmouth, MA 02664</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>139</td>
+            </tr>
+            
+            <tr>
+                <td><a href="146/">Langsdale Facility - Citizens Energy Group</a></td>
+                <td>2150 Dr Martin Luther King Jr St<br>
+                    Indianapolis, IN 46202</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Private</td>
+                <td>146</td>
+            </tr>
+            
+            <tr>
+                <td><a href="147/">CNG Source Fueling - Greene&#39;s Auto &amp; Truck Service</a></td>
+                <td>111 W Raymond St<br>
+                    Indianapolis, IN 46225</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>147</td>
+            </tr>
+            
+            <tr>
+                <td><a href="185/">Sandusky International</a></td>
+                <td>615 W Market St<br>
+                    Sandusky, OH 44870</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Private</td>
+                <td>185</td>
+            </tr>
+            
+            <tr>
+                <td><a href="215/">Black Hills Energy</a></td>
+                <td>1301 W 24th St<br>
+                    Cheyenne, WY 82001</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Card key at all times</td>
+                <td>215</td>
+            </tr>
+            
+            <tr>
+                <td><a href="248/">Shell</a></td>
+                <td>131 Brainard Rd<br>
+                    Hartford, CT 06114</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public</td>
+                <td>248</td>
+            </tr>
+            
+            <tr>
+                <td><a href="296/">Sparq - Baton Rouge</a></td>
+                <td>8968 S Choctaw Dr<br>
+                    Baton Rouge, LA 70815</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>296</td>
+            </tr>
+            
+            <tr>
+                <td><a href="307/">Ohio Department of Transportation - District 12</a></td>
+                <td>5500 Transportation Blvd<br>
+                    Garfield Heights, OH 44125</td>
+                <td>Compressed Natural Gas</td>
+                <td>State government owned</td>
+                <td>Private</td>
+                <td>307</td>
+            </tr>
+            
+            <tr>
+                <td><a href="360/">Clean Energy - Santa Fe Trails Transit</a></td>
+                <td>2931 Rufina St<br>
+                    Santa Fe, NM 87507</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>360</td>
+            </tr>
+            
+            <tr>
+                <td><a href="372/">Kansas Gas Service</a></td>
+                <td>11401 W 89th St<br>
+                    Overland Park, KS 66214</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>372</td>
+            </tr>
+            
+            <tr>
+                <td><a href="408/">Intermountain Gas Co</a></td>
+                <td>555 S Cole Rd<br>
+                    Boise, ID 83709</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private</td>
+                <td>408</td>
+            </tr>
+            
+            <tr>
+                <td><a href="413/">Intermountain Gas Co</a></td>
+                <td>12584 W Tyhee Rd<br>
+                    Pocatello, ID 83202</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private</td>
+                <td>413</td>
+            </tr>
+            
+            <tr>
+                <td><a href="415/">Intermountain Gas Co</a></td>
+                <td>1527 Hollipark Dr<br>
+                    Idaho Falls, ID 83401</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private</td>
+                <td>415</td>
+            </tr>
+            
+            <tr>
+                <td><a href="416/">Intermountain Gas Co</a></td>
+                <td>2921 Caldwell Blvd<br>
+                    Nampa, ID 83651</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private</td>
+                <td>416</td>
+            </tr>
+            
+            <tr>
+                <td><a href="418/">ValleyRide</a></td>
+                <td>4701 Northrup St<br>
+                    Boise, ID 83705</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private</td>
+                <td>418</td>
+            </tr>
+            
+            <tr>
+                <td><a href="434/">Kansas Gas Service</a></td>
+                <td>200 E 1st Ave<br>
+                    Topeka, KS 66603</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>434</td>
+            </tr>
+            
+            <tr>
+                <td><a href="440/">Laclede Gas Co - Shrewsbury Facility</a></td>
+                <td>4118 Shrewsbury Ave<br>
+                    St. Louis, MO 63119</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public - Card key at all times</td>
+                <td>440</td>
+            </tr>
+            
+            <tr>
+                <td><a href="448/">Clean Energy - Brentwood - National Grid</a></td>
+                <td>1650 Islip Ave<br>
+                    Brentwood, NY 11717</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>448</td>
+            </tr>
+            
+            <tr>
+                <td><a href="449/">Clean Energy - Hicksville - National Grid</a></td>
+                <td>175 E Old Country Rd<br>
+                    Hicksville, NY 11801</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>449</td>
+            </tr>
+            
+            <tr>
+                <td><a href="453/">Clean Energy - City of Irving</a></td>
+                <td>128 N Briery Rd<br>
+                    Irving, TX 75061</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>453</td>
+            </tr>
+            
+            <tr>
+                <td><a href="456/">Clean Energy - Downtown Dallas</a></td>
+                <td>801 S Riverfront Blvd<br>
+                    Dallas, TX 75207</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>456</td>
+            </tr>
+            
+            <tr>
+                <td><a href="465/">Trillium CNG - Fort Worth Transportation Authority</a></td>
+                <td>1600 E Lancaster Ave<br>
+                    Fort Worth, TX 76102</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private - Government only</td>
+                <td>465</td>
+            </tr>
+            
+            <tr>
+                <td><a href="477/">Clean Energy - Garland Independent School District</a></td>
+                <td>3526 Security St<br>
+                    Garland, TX 75042</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>477</td>
+            </tr>
+            
+            <tr>
+                <td><a href="499/">Questar Gas - Baggs</a></td>
+                <td>120 2nd St<br>
+                    Baggs, WY 82321</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private - Fleet customers only</td>
+                <td>499</td>
+            </tr>
+            
+            <tr>
+                <td><a href="507/">Questar Gas - Rock Springs</a></td>
+                <td>1401 New Hampshire St<br>
+                    Rock Springs, WY 82901</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>507</td>
+            </tr>
+            
+            <tr>
+                <td><a href="512/">Questar Gas - Church Buttes Station</a></td>
+                <td>I-80<br>
+                    Lyman, WY 82937</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private</td>
+                <td>512</td>
+            </tr>
+            
+            <tr>
+                <td><a href="513/">Questar Gas - Lyman Station</a></td>
+                <td>233 N Main St<br>
+                    Lyman, WY 82937</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private</td>
+                <td>513</td>
+            </tr>
+            
+            <tr>
+                <td><a href="514/">Questar Gas - Coalville Station</a></td>
+                <td>590 Border Station Rd<br>
+                    Coalville, UT 84017</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Private - Fleet customers only</td>
+                <td>514</td>
+            </tr>
+            
+            <tr>
+                <td><a href="519/">Orem City</a></td>
+                <td>955 N 900 W<br>
+                    Orem, UT 84057</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private - Fleet customers only</td>
+                <td>519</td>
+            </tr>
+            
+            <tr>
+                <td><a href="521/">Questar Gas - Roosevelt Service Center</a></td>
+                <td>115 E 100 S<br>
+                    Roosevelt, UT 84066</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private - Fleet customers only</td>
+                <td>521</td>
+            </tr>
+            
+            <tr>
+                <td><a href="522/">Questar Gas - Sandy</a></td>
+                <td>9242 S 500 W<br>
+                    Sandy, UT 84070</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>522</td>
+            </tr>
+            
+            <tr>
+                <td><a href="523/">West Jordan School District</a></td>
+                <td>8370 S 4300 W<br>
+                    West Jordan, UT 84088</td>
+                <td>Compressed Natural Gas</td>
+                <td>State government owned</td>
+                <td>Private</td>
+                <td>523</td>
+            </tr>
+            
+            <tr>
+                <td><a href="527/">Coca-Cola Swire Holding Co</a></td>
+                <td>12634 S 265 W<br>
+                    Draper, UT 84020</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Private</td>
+                <td>527</td>
+            </tr>
+            
+            <tr>
+                <td><a href="528/">Questar Gas - Salt Lake City</a></td>
+                <td>1150 W 200 S<br>
+                    Salt Lake City, UT 84104</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>528</td>
+            </tr>
+            
+            <tr>
+                <td><a href="534/">Salt Lake Operations Center</a></td>
+                <td>1078 W 100 S<br>
+                    Salt Lake City, UT 84104</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private</td>
+                <td>534</td>
+            </tr>
+            
+            <tr>
+                <td><a href="536/">Baxter Field Station - Wexpro</a></td>
+                <td>79 S State St<br>
+                    Salt Lake City, UT 84111</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Private - Fleet customers only</td>
+                <td>536</td>
+            </tr>
+            
+            <tr>
+                <td><a href="539/">Utah Power</a></td>
+                <td>1355 W North Temple<br>
+                    Salt Lake City, UT 84116</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private</td>
+                <td>539</td>
+            </tr>
+            
+            <tr>
+                <td><a href="541/">Coca-Cola Swire Pacific Holdings</a></td>
+                <td>2280 S 3270 W<br>
+                    West Valley City, UT 84119</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Private</td>
+                <td>541</td>
+            </tr>
+            
+            <tr>
+                <td><a href="542/">Salt Lake County Oxbow Prison</a></td>
+                <td>3148 S 1100 W<br>
+                    Salt Lake City, UT 84119</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private - Government only</td>
+                <td>542</td>
+            </tr>
+            
+            <tr>
+                <td><a href="548/">Questar Gas - LW&#39;s Conoco</a></td>
+                <td>1050 W 200 N<br>
+                    Logan, UT 84321</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>548</td>
+            </tr>
+            
+            <tr>
+                <td><a href="553/">Questar Gas - Ogden</a></td>
+                <td>2940 Washington Blvd<br>
+                    Ogden, UT 84401</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private - Fleet customers only</td>
+                <td>553</td>
+            </tr>
+            
+            <tr>
+                <td><a href="556/">Lifetime Products</a></td>
+                <td>97 E 700 S<br>
+                    Clearfield, UT 84015</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Private</td>
+                <td>556</td>
+            </tr>
+            
+            <tr>
+                <td><a href="558/">Questar Gas - Market Express Sinclair</a></td>
+                <td>850 S Carbon Ave<br>
+                    Price, UT 84501</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>558</td>
+            </tr>
+            
+            <tr>
+                <td><a href="559/">Questar Gas - Price</a></td>
+                <td>322 W 1100 N<br>
+                    Price, UT 84501</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private - Fleet customers only</td>
+                <td>559</td>
+            </tr>
+            
+            <tr>
+                <td><a href="563/">Questar Gas - Ephraim Service Center</a></td>
+                <td>320 S 50 W<br>
+                    Ephraim, UT 84627</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private - Fleet customers only</td>
+                <td>563</td>
+            </tr>
+            
+            <tr>
+                <td><a href="565/">Picksweet Farms</a></td>
+                <td>400 S Park Ave<br>
+                    Fillmore, UT 84631</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Private - Fleet customers only</td>
+                <td>565</td>
+            </tr>
+            
+            <tr>
+                <td><a href="566/">Questar Gas - Chevron</a></td>
+                <td>1060 S Highway 99<br>
+                    Fillmore, UT 84631</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>566</td>
+            </tr>
+            
+            <tr>
+                <td><a href="567/">Candi&#39;s Apple Juice</a></td>
+                <td>615 E 400 N<br>
+                    Santaquin, UT 84655</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Private</td>
+                <td>567</td>
+            </tr>
+            
+            <tr>
+                <td><a href="569/">Questar Gas - Chevron</a></td>
+                <td>1375 N Main St<br>
+                    Richfield, UT 84701</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>569</td>
+            </tr>
+            
+            <tr>
+                <td><a href="572/">Enterprise Station</a></td>
+                <td>946 N Production Rd<br>
+                    Cedar City, UT 84721</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private - Fleet customers only</td>
+                <td>572</td>
+            </tr>
+            
+            <tr>
+                <td><a href="574/">Questar Gas - St George Center</a></td>
+                <td>350 N 1155 E<br>
+                    St. George, UT 84770</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private - Fleet customers only</td>
+                <td>574</td>
+            </tr>
+            
+            <tr>
+                <td><a href="575/">Questar Gas - Shell</a></td>
+                <td>915 E Saint George Blvd<br>
+                    St. George, UT 84770</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>575</td>
+            </tr>
+            
+            <tr>
+                <td><a href="595/">Madison Gas &amp; Electric Co</a></td>
+                <td>623 Railroad St<br>
+                    Madison, WI 53788</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private - Fleet customers only</td>
+                <td>595</td>
+            </tr>
+            
+            <tr>
+                <td><a href="597/">Mobile Gas Service Corp</a></td>
+                <td>2828 Dauphin St<br>
+                    Mobile, AL 36606</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private - Fleet customers only</td>
+                <td>597</td>
+            </tr>
+            
+            <tr>
+                <td><a href="603/">Carburetion &amp; Turbo Systems Inc</a></td>
+                <td>1897 Eagle Creek Blvd<br>
+                    Shakopee, MN 55379</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Private</td>
+                <td>603</td>
+            </tr>
+            
+            <tr>
+                <td><a href="606/">CenterPoint Energy - Minnegasco</a></td>
+                <td>501 W 61st St<br>
+                    Minneapolis, MN 55419</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private - Fleet customers only</td>
+                <td>606</td>
+            </tr>
+            
+            <tr>
+                <td><a href="622/">Metropolitan Utilities District</a></td>
+                <td>2615 S 64th Ave<br>
+                    Omaha, NE 68106</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private</td>
+                <td>622</td>
+            </tr>
+            
+            <tr>
+                <td><a href="633/">Ward Alternative Energy - Castle Rock</a></td>
+                <td>3103 N Industrial Way<br>
+                    Castle Rock, CO 80104</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>633</td>
+            </tr>
+            
+            <tr>
+                <td><a href="645/">Xcel Energy - Clean Energy - Denver</a></td>
+                <td>1123 W 3rd Ave<br>
+                    Denver, CO 80223</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private</td>
+                <td>645</td>
+            </tr>
+            
+            <tr>
+                <td><a href="646/">Xcel Energy</a></td>
+                <td>10001 W Hampden Ave<br>
+                    Lakewood, CO 80227</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private</td>
+                <td>646</td>
+            </tr>
+            
+            <tr>
+                <td><a href="648/">Clean Energy - Denver International Airport Rental Car</a></td>
+                <td>27700 E 78th Ave<br>
+                    Denver, CO 80249</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>648</td>
+            </tr>
+            
+            <tr>
+                <td><a href="649/">Xcel Energy</a></td>
+                <td>2655 N 63rd St<br>
+                    Boulder, CO 80301</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private</td>
+                <td>649</td>
+            </tr>
+            
+            <tr>
+                <td><a href="650/">Clean Energy - Boulder - Conoco</a></td>
+                <td>2990 W Baseline Rd<br>
+                    Boulder, CO 80303</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public - Card key at all times</td>
+                <td>650</td>
+            </tr>
+            
+            <tr>
+                <td><a href="703/">Clean Energy - Albany - National Grid</a></td>
+                <td>1125 Broadway<br>
+                    Menands, NY 12204</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>703</td>
+            </tr>
+            
+            <tr>
+                <td><a href="716/">Northwest Natural Gas - Parkrose Service Center</a></td>
+                <td>12120 NE Inverness Dr<br>
+                    Portland, OR 97220</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private</td>
+                <td>716</td>
+            </tr>
+            
+            <tr>
+                <td><a href="717/">Northwest Natural Gas - Mt Scott Service Center</a></td>
+                <td>9222 SE Knapp St<br>
+                    Portland, OR 97266</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private</td>
+                <td>717</td>
+            </tr>
+            
+            <tr>
+                <td><a href="718/">Northwest Natural Gas - Salem Service Center</a></td>
+                <td>3123 Broadway St NE<br>
+                    Salem, OR 97303</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private</td>
+                <td>718</td>
+            </tr>
+            
+            <tr>
+                <td><a href="719/">Oregon Department of Administrative Services Motor Pool</a></td>
+                <td>1100 Airport Rd SE<br>
+                    Salem, OR 97301</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Public - Call ahead</td>
+                <td>719</td>
+            </tr>
+            
+            <tr>
+                <td><a href="735/">City of Oklahoma City</a></td>
+                <td>621 N Pennsylvania Ave<br>
+                    Oklahoma City, OK 73107</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private - Government only</td>
+                <td>735</td>
+            </tr>
+            
+            <tr>
+                <td><a href="737/">United Parcel Service</a></td>
+                <td>901 S Portland Ave<br>
+                    Oklahoma City, OK 73108</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Private</td>
+                <td>737</td>
+            </tr>
+            
+            <tr>
+                <td><a href="739/">Oklahoma Natural Gas - Northside Service Center</a></td>
+                <td>4901 N Santa Fe Ave<br>
+                    Oklahoma City, OK 73118</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private</td>
+                <td>739</td>
+            </tr>
+            
+            <tr>
+                <td><a href="740/">Oklahoma Natural Gas - Southside Service Center</a></td>
+                <td>412 SE 59th St<br>
+                    Oklahoma City, OK 73129</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>740</td>
+            </tr>
+            
+            <tr>
+                <td><a href="743/">Oklahoma Natural Gas - Southern Oklahoma Development Association</a></td>
+                <td>1995 Veterans Blvd<br>
+                    Ardmore, OK 73401</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>743</td>
+            </tr>
+            
+            <tr>
+                <td><a href="748/">Oklahoma Natural Gas - Enid Service Center</a></td>
+                <td>421 S Garland Rd<br>
+                    Enid, OK 73703</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>748</td>
+            </tr>
+            
+            <tr>
+                <td><a href="750/">Sand Springs Schools</a></td>
+                <td>410 W 55th St<br>
+                    Sand Springs, OK 74063</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private - Government only</td>
+                <td>750</td>
+            </tr>
+            
+            <tr>
+                <td><a href="752/">EZ Go #53</a></td>
+                <td>Mile 178 Turner Turnpike<br>
+                    Stroud, OK 74079</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public</td>
+                <td>752</td>
+            </tr>
+            
+            <tr>
+                <td><a href="755/">Oklahoma Natural Gas - Tulsa Service Center</a></td>
+                <td>5848 E 15th St<br>
+                    Tulsa, OK 74112</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>755</td>
+            </tr>
+            
+            <tr>
+                <td><a href="756/">Tulsa Public Schools</a></td>
+                <td>1815 N 77th E Ave<br>
+                    Tulsa, OK 74115</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private - Government only</td>
+                <td>756</td>
+            </tr>
+            
+            <tr>
+                <td><a href="762/">United Parcel Service</a></td>
+                <td>5805 S 118 E Ave<br>
+                    Tulsa, OK 74146</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>TEMPORARILY UNAVAILABLE (Private)</td>
+                <td>762</td>
+            </tr>
+            
+            <tr>
+                <td><a href="763/">Tulsa Public Schools - McBirney Site</a></td>
+                <td>1012 W 36th Pl<br>
+                    Tulsa, OK 74107</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private - Government only</td>
+                <td>763</td>
+            </tr>
+            
+            <tr>
+                <td><a href="765/">Oklahoma Natural Gas - Muskogee Service Center</a></td>
+                <td>2616 W Border St<br>
+                    Muskogee, OK 74401</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>765</td>
+            </tr>
+            
+            <tr>
+                <td><a href="767/">Oklahoma Natural Gas - Ponca City Service Center</a></td>
+                <td>2205 N Ash St<br>
+                    Ponca City, OK 74601</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>767</td>
+            </tr>
+            
+            <tr>
+                <td><a href="768/">Oklahoma Natural Gas - Shawnee Service Center</a></td>
+                <td>1444 N Kickapoo St<br>
+                    Shawnee, OK 74801</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>768</td>
+            </tr>
+            
+            <tr>
+                <td><a href="774/">Clean Energy</a></td>
+                <td>388 Park Ave<br>
+                    Warminster, PA 18974</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Private</td>
+                <td>774</td>
+            </tr>
+            
+            <tr>
+                <td><a href="776/">Clean Energy</a></td>
+                <td>1510 Chester Pike<br>
+                    Eddystone, PA 19022</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>TEMPORARILY UNAVAILABLE (Public - Credit card at all times)</td>
+                <td>776</td>
+            </tr>
+            
+            <tr>
+                <td><a href="778/">Clean Energy</a></td>
+                <td>1050 Swedesford Rd<br>
+                    Berwyn, PA 19312</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>778</td>
+            </tr>
+            
+            <tr>
+                <td><a href="786/">Clean Energy - Phoenixville</a></td>
+                <td>1101 W Bridge St<br>
+                    Phoenixville, PA 19460</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>786</td>
+            </tr>
+            
+            <tr>
+                <td><a href="787/">Clean Energy - Plymouth</a></td>
+                <td>680 Ridge Pike<br>
+                    Plymouth Meeting, PA 19462</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>787</td>
+            </tr>
+            
+            <tr>
+                <td><a href="792/">PG&amp;E Grass Valley Service Center</a></td>
+                <td>788 Taylorville Rd<br>
+                    Grass Valley, CA 95949</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public</td>
+                <td>792</td>
+            </tr>
+            
+            <tr>
+                <td><a href="797/">United Parcel Service</a></td>
+                <td>4500 Norris Canyon Rd<br>
+                    San Ramon, CA 94583</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>797</td>
+            </tr>
+            
+            <tr>
+                <td><a href="798/">PG&amp;E Santa Cruz Service Center</a></td>
+                <td>615 7th Ave<br>
+                    Santa Cruz, CA 95062</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Card key at all times</td>
+                <td>798</td>
+            </tr>
+            
+            <tr>
+                <td><a href="801/">PG&amp;E Bakersfield Service Center</a></td>
+                <td>4101 Wible Rd<br>
+                    Bakersfield, CA 93313</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public</td>
+                <td>801</td>
+            </tr>
+            
+            <tr>
+                <td><a href="804/">Clovis Unified School District</a></td>
+                <td>1450 Herndon Ave<br>
+                    Clovis, CA 93611</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private - Fleet customers only</td>
+                <td>804</td>
+            </tr>
+            
+            <tr>
+                <td><a href="806/">PG&amp;E Fresno Service Center</a></td>
+                <td>3754 E California Ave<br>
+                    Fresno, CA 93725</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public</td>
+                <td>806</td>
+            </tr>
+            
+            <tr>
+                <td><a href="809/">PG&amp;E Salinas Service Center</a></td>
+                <td>390 Griffin St<br>
+                    Salinas, CA 93901</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public</td>
+                <td>809</td>
+            </tr>
+            
+            <tr>
+                <td><a href="810/">PG&amp;E San Carlos Service Center</a></td>
+                <td>275 Industrial Way<br>
+                    San Carlos, CA 94070</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public</td>
+                <td>810</td>
+            </tr>
+            
+            <tr>
+                <td><a href="813/">PG&amp;E San Francisco Service Center</a></td>
+                <td>536 Treat Ave<br>
+                    San Francisco, CA 94110</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Card key at all times</td>
+                <td>813</td>
+            </tr>
+            
+            <tr>
+                <td><a href="816/">PG&amp;E Concord Service Center</a></td>
+                <td>1030 Detroit Ave<br>
+                    Concord, CA 94518</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public</td>
+                <td>816</td>
+            </tr>
+            
+            <tr>
+                <td><a href="818/">PG&amp;E Hayward Service Center</a></td>
+                <td>24300 Clawiter Rd<br>
+                    Hayward, CA 94545</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public</td>
+                <td>818</td>
+            </tr>
+            
+            <tr>
+                <td><a href="826/">PG&amp;E Richmond Service Center</a></td>
+                <td>1100 S 27th St<br>
+                    Richmond, CA 94804</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Card key at all times</td>
+                <td>826</td>
+            </tr>
+            
+            <tr>
+                <td><a href="827/">PG&amp;E San Rafael Service Center</a></td>
+                <td>1220 Andersen Dr<br>
+                    San Rafael, CA 94901</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Card key at all times</td>
+                <td>827</td>
+            </tr>
+            
+            <tr>
+                <td><a href="828/">PG&amp;E Cupertino Service Center</a></td>
+                <td>10900 N Blaney Ave<br>
+                    Cupertino, CA 95014</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public</td>
+                <td>828</td>
+            </tr>
+            
+            <tr>
+                <td><a href="829/">PG&amp;E San Jose Service Center</a></td>
+                <td>308 Stockton Ave<br>
+                    San Jose, CA 95126</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Card key at all times</td>
+                <td>829</td>
+            </tr>
+            
+            <tr>
+                <td><a href="832/">PG&amp;E Stockton Service Center</a></td>
+                <td>4040 West Ln<br>
+                    Stockton, CA 95204</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public</td>
+                <td>832</td>
+            </tr>
+            
+            <tr>
+                <td><a href="834/">PG&amp;E Santa Rosa Service Center</a></td>
+                <td>3965 Occidental Rd<br>
+                    Santa Rosa, CA 95401</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public</td>
+                <td>834</td>
+            </tr>
+            
+            <tr>
+                <td><a href="835/">PG&amp;E Auburn Service Center</a></td>
+                <td>333 Sacramento St<br>
+                    Auburn, CA 95603</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public</td>
+                <td>835</td>
+            </tr>
+            
+            <tr>
+                <td><a href="836/">PG&amp;E Davis Service Center</a></td>
+                <td>1415 2nd St<br>
+                    Davis, CA 95616</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public</td>
+                <td>836</td>
+            </tr>
+            
+            <tr>
+                <td><a href="839/">Sacramento Regional Transit District - Mid Town</a></td>
+                <td>1400 29th St<br>
+                    Sacramento, CA 95816</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private</td>
+                <td>839</td>
+            </tr>
+            
+            <tr>
+                <td><a href="842/">PG&amp;E Florin-Perkins Service Center</a></td>
+                <td>5555 Florin-Perkins Rd<br>
+                    Sacramento, CA 95826</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Card key at all times</td>
+                <td>842</td>
+            </tr>
+            
+            <tr>
+                <td><a href="844/">Anderson Union High School District (Private)</a></td>
+                <td>1471 Ferry St<br>
+                    Anderson, CA 96007</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private</td>
+                <td>844</td>
+            </tr>
+            
+            <tr>
+                <td><a href="858/">City of Hollywood</a></td>
+                <td>1600 S Park Rd<br>
+                    Hollywood, FL 33021</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private</td>
+                <td>858</td>
+            </tr>
+            
+            <tr>
+                <td><a href="864/">City of Milton</a></td>
+                <td>5162 Munson Hwy<br>
+                    Milton, FL 32570</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Public - Credit card after hours</td>
+                <td>864</td>
+            </tr>
+            
+            <tr>
+                <td><a href="868/">TECO Peoples Gas</a></td>
+                <td>600 W Robinson St<br>
+                    Orlando, FL 32801</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private</td>
+                <td>868</td>
+            </tr>
+            
+            <tr>
+                <td><a href="873/">TECO Peoples Gas</a></td>
+                <td>15779 W Dixie Hwy<br>
+                    North Miami Beach, FL 33162</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private</td>
+                <td>873</td>
+            </tr>
+            
+            <tr>
+                <td><a href="897/">Piedmont Natural Gas - Greenville</a></td>
+                <td>100 Woodruff Industrial Ln<br>
+                    Greenville, SC 29607</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>897</td>
+            </tr>
+            
+            <tr>
+                <td><a href="907/">PSNC Energy</a></td>
+                <td>2712 Discovery Dr<br>
+                    Raleigh, NC 27616</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>907</td>
+            </tr>
+            
+            <tr>
+                <td><a href="939/">Chula Vista Education Center</a></td>
+                <td>84 East J St<br>
+                    Chula Vista, CA 91910</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public</td>
+                <td>939</td>
+            </tr>
+            
+            <tr>
+                <td><a href="941/">Trillium CNG - San Diego Metropolitan Transit System</a></td>
+                <td>3650 Main St<br>
+                    Chula Vista, CA 91911</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private</td>
+                <td>941</td>
+            </tr>
+            
+            <tr>
+                <td><a href="942/">San Diego Gas and Electric - Carlsbad</a></td>
+                <td>602 Cannon Rd<br>
+                    Carlsbad, CA 92008</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>942</td>
+            </tr>
+            
+            <tr>
+                <td><a href="944/">Trillium CNG - North County Transit District West</a></td>
+                <td>305 Via Del Norte<br>
+                    Oceanside, CA 92058</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Private</td>
+                <td>944</td>
+            </tr>
+            
+            <tr>
+                <td><a href="945/">Poway Unified School District</a></td>
+                <td>13626 Twin Peaks Rd<br>
+                    Poway, CA 92064</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>945</td>
+            </tr>
+            
+            <tr>
+                <td><a href="947/">Vista Unified School District</a></td>
+                <td>1222 Arcadia Ave<br>
+                    Vista, CA 92084</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private</td>
+                <td>947</td>
+            </tr>
+            
+            <tr>
+                <td><a href="951/">San Diego Gas and Electric Service Center - Miramar Yard</a></td>
+                <td>6875 Consolidated Way<br>
+                    San Diego, CA 92121</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>951</td>
+            </tr>
+            
+            <tr>
+                <td><a href="952/">San Diego Gas and Electric Service Center - San Diego</a></td>
+                <td>5488 Overland Ave<br>
+                    San Diego, CA 92123</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>952</td>
+            </tr>
+            
+            <tr>
+                <td><a href="953/">Trillium CNG - San Diego Metropolitan Transit System</a></td>
+                <td>4630 Ruffner St<br>
+                    San Diego, CA 92111</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private</td>
+                <td>953</td>
+            </tr>
+            
+            <tr>
+                <td><a href="982/">Clean Energy - Waste Management - Moreno Valley</a></td>
+                <td>17700 Indian Ave<br>
+                    Moreno Valley, CA 92551</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>982</td>
+            </tr>
+            
+            <tr>
+                <td><a href="990/">Clean Energy - Los Angeles County Metropolitan Transportation Authority - Division 10</a></td>
+                <td>742 N Mission Rd<br>
+                    Los Angeles, CA 90033</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private</td>
+                <td>990</td>
+            </tr>
+            
+            <tr>
+                <td><a href="995/">Clean Energy - Santa Monica SoCal Gas Station</a></td>
+                <td>1701 Stewart St<br>
+                    Santa Monica, CA 90404</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>995</td>
+            </tr>
+            
+            <tr>
+                <td><a href="997/">Clean Energy - LA County Sanitation District</a></td>
+                <td>13130 Crossroads Pkwy S<br>
+                    City of Industry, CA 91746</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>997</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1000/">SoCalGas - Pico Rivera Base</a></td>
+                <td>8101 S Rosemead Blvd<br>
+                    Pico Rivera, CA 90660</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>1000</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1002/">SoCalGas - San Pedro Base</a></td>
+                <td>755 W Capitol Dr<br>
+                    Los Angeles, CA 90731</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>1002</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1005/">Clean Energy - Los Angeles County Metropolitan Transportation Authority - Division 15</a></td>
+                <td>11900 Branford St<br>
+                    Sun Valley, CA 91352</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private</td>
+                <td>1005</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1006/">SoCalGas - Van Nuys Base</a></td>
+                <td>16645 Saticoy St<br>
+                    Los Angeles, CA 91406</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>1006</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1009/">City of Covina - City Corporate Yard</a></td>
+                <td>534 N Barranca Ave<br>
+                    Covina, CA 91723</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>1009</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1010/">Clean Energy - Los Angeles County Metropolitan Transportation Authority - Division 8</a></td>
+                <td>9201 Canoga Ave<br>
+                    Chatsworth, CA 91311</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private</td>
+                <td>1010</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1013/">Titan NGV Fueling - South Coast Air Quality Management District</a></td>
+                <td>21865 Copley Dr<br>
+                    Diamond Bar, CA 91765</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>1013</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1014/">SunLine Transit Agency</a></td>
+                <td>32505 Harry Oliver Trail<br>
+                    Thousand Palms, CA 92276</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>1014</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1016/">SoCalGas - Riverside Base</a></td>
+                <td>3077 Cottage St<br>
+                    Riverside, CA 92507</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>1016</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1017/">SoCalGas - Garden Grove Base</a></td>
+                <td>12698 Industry St<br>
+                    Garden Grove, CA 92841</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>1017</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1019/">Trillium CNG - Orange County Transportation Authority - Garden Grove</a></td>
+                <td>11790 Cardinal Pl<br>
+                    Garden Grove, CA 92843</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private - Government only</td>
+                <td>1019</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1022/">Clean Energy - Irvine City Yard</a></td>
+                <td>6427 Oak Canyon<br>
+                    Irvine, CA 92618</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>1022</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1025/">SoCalGas - Oxnard Base</a></td>
+                <td>1650 Patton Ct<br>
+                    Oxnard, CA 93030</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>1025</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1029/">Clean Energy - JB Dewar Inc</a></td>
+                <td>75 Prado Rd<br>
+                    San Luis Obispo, CA 93401</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>1029</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1032/">Antelope Valley School Bus Transit</a></td>
+                <td>670 West Ave L-8<br>
+                    Lancaster, CA 93534</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>1032</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1034/">Arkansas Oklahoma Gas Corp</a></td>
+                <td>5030 South S St<br>
+                    Fort Smith, AR 72903</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private</td>
+                <td>1034</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1036/">Sun Metro</a></td>
+                <td>700 San Francisco Ave<br>
+                    El Paso, TX 79901</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private - Government only</td>
+                <td>1036</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1062/">City of Phoenix - Salt River Service Center</a></td>
+                <td>3045 S 22nd Ave<br>
+                    Phoenix, AZ 85015</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private</td>
+                <td>1062</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1070/">City of Scottsdale</a></td>
+                <td>9191 E San Salvador Dr<br>
+                    Scottsdale, AZ 85258</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private - Government only</td>
+                <td>1070</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1078/">Southwest Gas Corp</a></td>
+                <td>3401 E Gas Rd<br>
+                    Tucson, AZ 85714</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>TEMPORARILY UNAVAILABLE (Private)</td>
+                <td>1078</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1079/">City of Tucson Fleet Service</a></td>
+                <td>4004 S Park Ave<br>
+                    Tucson, AZ 85714</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private - Government only</td>
+                <td>1079</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1083/">Clean Energy - RTC Losee</a></td>
+                <td>3333 Losee Rd<br>
+                    North Las Vegas, NV 89124</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>1083</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1108/">Virginia Natural Gas - Lance Rd</a></td>
+                <td>1184 Lance Rd<br>
+                    Norfolk, VA 23502</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Card key at all times</td>
+                <td>1108</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1110/">Virginia Natural Gas - VNG Office</a></td>
+                <td>746 Diligence Dr<br>
+                    Newport News, VA 23606</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Card key at all times</td>
+                <td>1110</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1130/">Montgomery County Agencies - Fleet Management Services</a></td>
+                <td>17000 Crabbs Branch Way<br>
+                    Gaithersburg, MD 20855</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>1130</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1154/">Johnson Bus</a></td>
+                <td>1208 E Green Bay St<br>
+                    Shawano, WI 54166</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Private</td>
+                <td>1154</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1155/">Cadott Schools</a></td>
+                <td>466 E Mills St<br>
+                    Cadott, WI 54727</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private - Government only</td>
+                <td>1155</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1186/">Falcon Fuel</a></td>
+                <td>2400 E College Ave<br>
+                    Cudahy, WI 53110</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public</td>
+                <td>1186</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1193/">Double Three Transportation Co</a></td>
+                <td>1280 Farmco Ln<br>
+                    Fort Atkinson, WI 53538</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>TEMPORARILY UNAVAILABLE (Private)</td>
+                <td>1193</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1200/">Avista Pullman Service Center</a></td>
+                <td>5702 State Route 270<br>
+                    Pullman, WA 99163</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private</td>
+                <td>1200</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1201/">Avista Central Operating Facility</a></td>
+                <td>1411 E Mission Ave<br>
+                    Spokane, WA 99202</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private</td>
+                <td>1201</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1202/">Avista Clarkston Service Center</a></td>
+                <td>1330 Fair St<br>
+                    Clarkston, WA 99403</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private</td>
+                <td>1202</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1215/">Memphis Light, Gas and Water - North CNG Center</a></td>
+                <td>1130 Tupelo St<br>
+                    Memphis, TN 38108</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>1215</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1226/">Clean Energy - Lindbergh Field Shell</a></td>
+                <td>2521 Pacific Hwy<br>
+                    San Diego, CA 92101</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>1226</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1236/">Clean Energy - Los Angeles County Metropolitan Transportation Authority - Division 18</a></td>
+                <td>450 W Griffith St<br>
+                    Gardena, CA 90745</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private</td>
+                <td>1236</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1251/">Clean Energy - Los Angeles International Airport</a></td>
+                <td>10400 Aviation Blvd<br>
+                    Los Angeles, CA 90045</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>1251</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1252/">Nassau Inter-County Express</a></td>
+                <td>700 Commercial Ave<br>
+                    Garden City, NY 11530</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private - Government only</td>
+                <td>1252</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1253/">Montgomery County Transit</a></td>
+                <td>16624 Crabbs Branch Way<br>
+                    Derwood, MD 20855</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private</td>
+                <td>1253</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1264/">Oklahoma Natural Gas - Okmulgee Service Center</a></td>
+                <td>2018 S Wood Dr<br>
+                    Okmulgee, OK 74447</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>1264</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1270/">Levolor</a></td>
+                <td>1300 W 3300 S<br>
+                    Ogden, UT 84401</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private</td>
+                <td>1270</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1284/">Fur Breeders Co-op</a></td>
+                <td>150 N 1000 W<br>
+                    Logan, UT 84321</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Private - Fleet customers only</td>
+                <td>1284</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1286/">Washington Elementary School District</a></td>
+                <td>12641 N 39th Ave<br>
+                    Phoenix, AZ 85029</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>1286</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1287/">Paradise Valley School District</a></td>
+                <td>20621 N 32nd St<br>
+                    Phoenix, AZ 85050</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private - Government only</td>
+                <td>1287</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1294/">Chesapeake Utilities</a></td>
+                <td>350 S Queen St<br>
+                    Dover, DE 19904</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Card key at all times</td>
+                <td>1294</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1332/">Metropolitan Atlanta Rapid Transit Authority</a></td>
+                <td>1600 Perry Blvd NW<br>
+                    Atlanta, GA 30318</td>
+                <td>Compressed Natural Gas</td>
+                <td>Local government owned</td>
+                <td>Private - Government only</td>
+                <td>1332</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1347/">PG&amp;E Chico Service Center</a></td>
+                <td>11239 Midway<br>
+                    Chico, CA 95928</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public</td>
+                <td>1347</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1349/">PG&amp;E Vacaville Service Center</a></td>
+                <td>158 Peabody Rd<br>
+                    Vacaville, CA 95687</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public</td>
+                <td>1349</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1350/">Unitrans Shop</a></td>
+                <td>800 Garrod Dr<br>
+                    Davis, CA 95616</td>
+                <td>Compressed Natural Gas</td>
+                <td>State government owned</td>
+                <td>Private</td>
+                <td>1350</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1352/">SunLine Transit Agency</a></td>
+                <td>83255 Highway 111<br>
+                    Indio, CA 92201</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>1352</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1353/">SoCalGas - Energy Resource Center</a></td>
+                <td>9240 E Firestone Blvd<br>
+                    Downey, CA 90241</td>
+                <td>Compressed Natural Gas</td>
+                <td>Utility owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>1353</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1354/">Trillium CNG - Southern California Gas Co</a></td>
+                <td>1919 S State College Blvd<br>
+                    Anaheim, CA 92806</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Public - Credit card at all times</td>
+                <td>1354</td>
+            </tr>
+            
+            <tr>
+                <td><a href="1357/">Riverside Transit Agency</a></td>
+                <td>1825 3rd St<br>
+                    Riverside, CA 92507</td>
+                <td>Compressed Natural Gas</td>
+                <td>Privately owned</td>
+                <td>Private</td>
+                <td>1357</td>
+            </tr>
+            
+        </table>
+        <script type="text/javascript">
+            var map = L.map('map').setView([37.8, -96], 5);
+            var osmLayer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 18,
+                attribution: 'Data, imagery and map information provided by <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> and contributors.'
+            });
+            map.addLayer(osmLayer);
+            var data = {
+              "type": "FeatureCollection",
+              "features": [
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Alagasco Montgomery Operations Center",
+                    "id": "17",
+                    "address": "2951 Chestnut St, Montgomery, AL 36107"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-86.267019, 32.36791]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - PS Energy - Atlanta",
+                    "id": "42",
+                    "address": "340 Whitehall St, Atlanta, GA 30303"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-84.3989143, 33.7458152]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Metropolitan Atlanta Rapid Transit Authority",
+                    "id": "45",
+                    "address": "2424 Piedmont Rd NE, Atlanta, GA 30324"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-84.3686323, 33.8241058]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "United Parcel Service",
+                    "id": "64",
+                    "address": "270 Marvin Miller Dr, Atlanta, GA 30336"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-84.5443853, 33.7601459]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - Texas Department of Transportation",
+                    "id": "72",
+                    "address": "7721A Washington St, Houston, TX 77007"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-95.4330926, 29.779355]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Arkansas Oklahoma Gas Corp",
+                    "id": "73",
+                    "address": "2100 S Waldron Rd, Fort Smith, AR 72903"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-94.3728714, 35.3628525]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - Logan International Airport",
+                    "id": "81",
+                    "address": "14 Cottage St, Boston, MA 02128"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-71.036775, 42.36614]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - West Roxbury - National Grid",
+                    "id": "83",
+                    "address": "201 Rivermoor St, West Roxbury, MA 02132"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-71.180333, 42.2788899]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - Everett - National Grid",
+                    "id": "84",
+                    "address": "12 Rover St, Everett, MA 02149"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-71.064593, 42.3931188]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - Greenpoint - National Grid",
+                    "id": "108",
+                    "address": "287 Maspeth Ave, Brooklyn, NY 11211"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-73.931508, 40.718053]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - Canarsie - National Grid",
+                    "id": "112",
+                    "address": "8424 Ditmas Ave, Brooklyn, NY 11236"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-73.9199237, 40.6450546]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "City of Corpus Christi Gas Department",
+                    "id": "118",
+                    "address": "4225 S Port Ave, Corpus Christi, TX 78415"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-97.4205535, 27.7501345]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Con Edison - W 29th St Service Center",
+                    "id": "124",
+                    "address": "281 11th Ave, New York, NY 10001"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-74.005797, 40.7528859]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Con Edison - E 16th St Service Center",
+                    "id": "125",
+                    "address": "700 E 16th St, New York, NY 10009"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-73.9744623, 40.7295269]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Con Edison - Van Nest Service Center",
+                    "id": "129",
+                    "address": "1615 Bronxdale Ave, Bronx, NY 10462"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-73.8615724, 40.8441883]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Con Edison - Rye Service Center",
+                    "id": "130",
+                    "address": "178 Theodore Fremd Ave, Rye, NY 10580"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-73.6916993, 40.9791979]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - OGS Valhalla",
+                    "id": "131",
+                    "address": "7 Dana Rd, Valhalla, NY 10595"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-73.8181606, 41.0812946]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Con Edison - College Point Service Center",
+                    "id": "132",
+                    "address": "124-15 31st Ave, Queens, NY 11354"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-73.8462265, 40.7694802]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "City of Enumclaw",
+                    "id": "134",
+                    "address": "2041 Railroad St, Enumclaw, WA 98022"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-121.985958, 47.205971]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - South Yarmouth - National Grid",
+                    "id": "139",
+                    "address": "127 Whites Path, South Yarmouth, MA 02664"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-70.201253, 41.688787]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Langsdale Facility - Citizens Energy Group",
+                    "id": "146",
+                    "address": "2150 Dr Martin Luther King Jr St, Indianapolis, IN 46202"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-86.172333, 39.7978059]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "CNG Source Fueling - Greene&#39;s Auto &amp; Truck Service",
+                    "id": "147",
+                    "address": "111 W Raymond St, Indianapolis, IN 46225"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-86.1610411, 39.7363456]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Sandusky International",
+                    "id": "185",
+                    "address": "615 W Market St, Sandusky, OH 44870"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-82.717608, 41.454931]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Black Hills Energy",
+                    "id": "215",
+                    "address": "1301 W 24th St, Cheyenne, WY 82001"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-104.8326364, 41.1351737]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Shell",
+                    "id": "248",
+                    "address": "131 Brainard Rd, Hartford, CT 06114"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-72.6601816, 41.7369017]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Sparq - Baton Rouge",
+                    "id": "296",
+                    "address": "8968 S Choctaw Dr, Baton Rouge, LA 70815"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-91.0888137, 30.4716072]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Ohio Department of Transportation - District 12",
+                    "id": "307",
+                    "address": "5500 Transportation Blvd, Garfield Heights, OH 44125"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-81.6151916, 41.4154437]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - Santa Fe Trails Transit",
+                    "id": "360",
+                    "address": "2931 Rufina St, Santa Fe, NM 87507"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-105.9966376, 35.6565689]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Kansas Gas Service",
+                    "id": "372",
+                    "address": "11401 W 89th St, Overland Park, KS 66214"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-94.7160316, 38.9660399]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Intermountain Gas Co",
+                    "id": "408",
+                    "address": "555 S Cole Rd, Boise, ID 83709"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-116.275946, 43.599167]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Intermountain Gas Co",
+                    "id": "413",
+                    "address": "12584 W Tyhee Rd, Pocatello, ID 83202"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-112.4683459, 42.9498516]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Intermountain Gas Co",
+                    "id": "415",
+                    "address": "1527 Hollipark Dr, Idaho Falls, ID 83401"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-112.0073122, 43.5096985]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Intermountain Gas Co",
+                    "id": "416",
+                    "address": "2921 Caldwell Blvd, Nampa, ID 83651"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-116.6181249, 43.6150096]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "ValleyRide",
+                    "id": "418",
+                    "address": "4701 Northrup St, Boise, ID 83705"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-116.2414802, 43.5590153]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Kansas Gas Service",
+                    "id": "434",
+                    "address": "200 E 1st Ave, Topeka, KS 66603"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-95.667844, 39.058746]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Laclede Gas Co - Shrewsbury Facility",
+                    "id": "440",
+                    "address": "4118 Shrewsbury Ave, St. Louis, MO 63119"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-90.323459, 38.598614]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - Brentwood - National Grid",
+                    "id": "448",
+                    "address": "1650 Islip Ave, Brentwood, NY 11717"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-73.219801, 40.7842714]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - Hicksville - National Grid",
+                    "id": "449",
+                    "address": "175 E Old Country Rd, Hicksville, NY 11801"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-73.5120693, 40.7655928]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - City of Irving",
+                    "id": "453",
+                    "address": "128 N Briery Rd, Irving, TX 75061"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-96.989184, 32.8178985]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - Downtown Dallas",
+                    "id": "456",
+                    "address": "801 S Riverfront Blvd, Dallas, TX 75207"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-96.8075208, 32.7669635]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Trillium CNG - Fort Worth Transportation Authority",
+                    "id": "465",
+                    "address": "1600 E Lancaster Ave, Fort Worth, TX 76102"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-97.3110175, 32.7457637]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - Garland Independent School District",
+                    "id": "477",
+                    "address": "3526 Security St, Garland, TX 75042"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-96.6837453, 32.897241]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Questar Gas - Baggs",
+                    "id": "499",
+                    "address": "120 2nd St, Baggs, WY 82321"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-107.6578598, 41.0333721]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Questar Gas - Rock Springs",
+                    "id": "507",
+                    "address": "1401 New Hampshire St, Rock Springs, WY 82901"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-109.2044472, 41.5781132]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Questar Gas - Church Buttes Station",
+                    "id": "512",
+                    "address": "I-80, Lyman, WY 82937"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-110.07, 41.45492]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Questar Gas - Lyman Station",
+                    "id": "513",
+                    "address": "233 N Main St, Lyman, WY 82937"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-110.2929475, 41.3305794]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Questar Gas - Coalville Station",
+                    "id": "514",
+                    "address": "590 Border Station Rd, Coalville, UT 84017"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-111.3709081, 40.9141713]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Orem City",
+                    "id": "519",
+                    "address": "955 N 900 W, Orem, UT 84057"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-111.717746, 40.3147779]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Questar Gas - Roosevelt Service Center",
+                    "id": "521",
+                    "address": "115 E 100 S, Roosevelt, UT 84066"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-109.9900805, 40.2981169]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Questar Gas - Sandy",
+                    "id": "522",
+                    "address": "9242 S 500 W, Sandy, UT 84070"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-111.9057236, 40.5835507]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "West Jordan School District",
+                    "id": "523",
+                    "address": "8370 S 4300 W, West Jordan, UT 84088"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-111.9935535, 40.5991213]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Coca-Cola Swire Holding Co",
+                    "id": "527",
+                    "address": "12634 S 265 W, Draper, UT 84020"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-111.9004902, 40.5221855]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Questar Gas - Salt Lake City",
+                    "id": "528",
+                    "address": "1150 W 200 S, Salt Lake City, UT 84104"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-111.922291, 40.764976]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Salt Lake Operations Center",
+                    "id": "534",
+                    "address": "1078 W 100 S, Salt Lake City, UT 84104"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-111.91969, 40.7671881]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Baxter Field Station - Wexpro",
+                    "id": "536",
+                    "address": "79 S State St, Salt Lake City, UT 84111"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-111.8881324, 40.7671817]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Utah Power",
+                    "id": "539",
+                    "address": "1355 W North Temple, Salt Lake City, UT 84116"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-111.9310647, 40.7714376]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Coca-Cola Swire Pacific Holdings",
+                    "id": "541",
+                    "address": "2280 S 3270 W, West Valley City, UT 84119"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-111.9692593, 40.7223096]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Salt Lake County Oxbow Prison",
+                    "id": "542",
+                    "address": "3148 S 1100 W, Salt Lake City, UT 84119"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-111.923648, 40.702332]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Questar Gas - LW&#39;s Conoco",
+                    "id": "548",
+                    "address": "1050 W 200 N, Logan, UT 84321"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-111.8615584, 41.7351419]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Questar Gas - Ogden",
+                    "id": "553",
+                    "address": "2940 Washington Blvd, Ogden, UT 84401"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-111.969633, 41.2112]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Lifetime Products",
+                    "id": "556",
+                    "address": "97 E 700 S, Clearfield, UT 84015"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-112.024, 41.10394]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Questar Gas - Market Express Sinclair",
+                    "id": "558",
+                    "address": "850 S Carbon Ave, Price, UT 84501"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-110.812887, 39.586198]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Questar Gas - Price",
+                    "id": "559",
+                    "address": "322 W 1100 N, Price, UT 84501"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-110.822351, 39.618267]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Questar Gas - Ephraim Service Center",
+                    "id": "563",
+                    "address": "320 S 50 W, Ephraim, UT 84627"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-111.5883424, 39.3543013]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Picksweet Farms",
+                    "id": "565",
+                    "address": "400 S Park Ave, Fillmore, UT 84631"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-112.3557336, 38.9500837]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Questar Gas - Chevron",
+                    "id": "566",
+                    "address": "1060 S Highway 99, Fillmore, UT 84631"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-112.3463581, 38.9488473]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Candi&#39;s Apple Juice",
+                    "id": "567",
+                    "address": "615 E 400 N, Santaquin, UT 84655"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-111.8322515, 40.0040125]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Questar Gas - Chevron",
+                    "id": "569",
+                    "address": "1375 N Main St, Richfield, UT 84701"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-112.08329, 38.786196]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Enterprise Station",
+                    "id": "572",
+                    "address": "946 N Production Rd, Cedar City, UT 84721"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-113.0944141, 37.6935352]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Questar Gas - St George Center",
+                    "id": "574",
+                    "address": "350 N 1155 E, St. George, UT 84770"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-113.5586433, 37.1140177]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Questar Gas - Shell",
+                    "id": "575",
+                    "address": "915 E Saint George Blvd, St. George, UT 84770"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-113.563804, 37.109775]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Madison Gas &amp; Electric Co",
+                    "id": "595",
+                    "address": "623 Railroad St, Madison, WI 53788"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-89.376884, 43.077569]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Mobile Gas Service Corp",
+                    "id": "597",
+                    "address": "2828 Dauphin St, Mobile, AL 36606"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-88.108832, 30.689804]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Carburetion &amp; Turbo Systems Inc",
+                    "id": "603",
+                    "address": "1897 Eagle Creek Blvd, Shakopee, MN 55379"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-93.497732, 44.7903329]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "CenterPoint Energy - Minnegasco",
+                    "id": "606",
+                    "address": "501 W 61st St, Minneapolis, MN 55419"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-93.2860098, 44.8918102]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Metropolitan Utilities District",
+                    "id": "622",
+                    "address": "2615 S 64th Ave, Omaha, NE 68106"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-96.012438, 41.235084]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Ward Alternative Energy - Castle Rock",
+                    "id": "633",
+                    "address": "3103 N Industrial Way, Castle Rock, CO 80104"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-104.871667, 39.406906]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Xcel Energy - Clean Energy - Denver",
+                    "id": "645",
+                    "address": "1123 W 3rd Ave, Denver, CO 80223"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-105.0035569, 39.7214101]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Xcel Energy",
+                    "id": "646",
+                    "address": "10001 W Hampden Ave, Lakewood, CO 80227"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-105.1113878, 39.6550262]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - Denver International Airport Rental Car",
+                    "id": "648",
+                    "address": "27700 E 78th Ave, Denver, CO 80249"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-104.6784357, 39.8385935]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Xcel Energy",
+                    "id": "649",
+                    "address": "2655 N 63rd St, Boulder, CO 80301"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-105.2114586, 40.0206371]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - Boulder - Conoco",
+                    "id": "650",
+                    "address": "2990 W Baseline Rd, Boulder, CO 80303"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-105.253543, 39.9995537]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - Albany - National Grid",
+                    "id": "703",
+                    "address": "1125 Broadway, Menands, NY 12204"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-73.739345, 42.667569]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Northwest Natural Gas - Parkrose Service Center",
+                    "id": "716",
+                    "address": "12120 NE Inverness Dr, Portland, OR 97220"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-122.5377834, 45.5630562]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Northwest Natural Gas - Mt Scott Service Center",
+                    "id": "717",
+                    "address": "9222 SE Knapp St, Portland, OR 97266"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-122.56719, 45.46966]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Northwest Natural Gas - Salem Service Center",
+                    "id": "718",
+                    "address": "3123 Broadway St NE, Salem, OR 97303"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-123.0292829, 44.9713292]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Oregon Department of Administrative Services Motor Pool",
+                    "id": "719",
+                    "address": "1100 Airport Rd SE, Salem, OR 97301"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-123.0024928, 44.9225344]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "City of Oklahoma City",
+                    "id": "735",
+                    "address": "621 N Pennsylvania Ave, Oklahoma City, OK 73107"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-97.5515099, 35.473942]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "United Parcel Service",
+                    "id": "737",
+                    "address": "901 S Portland Ave, Oklahoma City, OK 73108"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-97.5870637, 35.4572767]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Oklahoma Natural Gas - Northside Service Center",
+                    "id": "739",
+                    "address": "4901 N Santa Fe Ave, Oklahoma City, OK 73118"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-97.5128543, 35.5208361]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Oklahoma Natural Gas - Southside Service Center",
+                    "id": "740",
+                    "address": "412 SE 59th St, Oklahoma City, OK 73129"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-97.5025132, 35.4062351]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Oklahoma Natural Gas - Southern Oklahoma Development Association",
+                    "id": "743",
+                    "address": "1995 Veterans Blvd, Ardmore, OK 73401"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-97.1516599, 34.2023311]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Oklahoma Natural Gas - Enid Service Center",
+                    "id": "748",
+                    "address": "421 S Garland Rd, Enid, OK 73703"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-97.9428617, 36.3924454]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Sand Springs Schools",
+                    "id": "750",
+                    "address": "410 W 55th St, Sand Springs, OK 74063"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-96.1294358, 36.1105963]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "EZ Go #53",
+                    "id": "752",
+                    "address": "Mile 178 Turner Turnpike, Stroud, OK 74079"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-96.690021, 35.7517333]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Oklahoma Natural Gas - Tulsa Service Center",
+                    "id": "755",
+                    "address": "5848 E 15th St, Tulsa, OK 74112"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-95.9112899, 36.138765]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Tulsa Public Schools",
+                    "id": "756",
+                    "address": "1815 N 77th E Ave, Tulsa, OK 74115"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-95.8889802, 36.1793262]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "United Parcel Service",
+                    "id": "762",
+                    "address": "5805 S 118 E Ave, Tulsa, OK 74146"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-95.844261, 36.07938]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Tulsa Public Schools - McBirney Site",
+                    "id": "763",
+                    "address": "1012 W 36th Pl, Tulsa, OK 74107"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-96.0032502, 36.1105678]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Oklahoma Natural Gas - Muskogee Service Center",
+                    "id": "765",
+                    "address": "2616 W Border St, Muskogee, OK 74401"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-95.397017, 35.740814]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Oklahoma Natural Gas - Ponca City Service Center",
+                    "id": "767",
+                    "address": "2205 N Ash St, Ponca City, OK 74601"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-97.0937184, 36.7303429]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Oklahoma Natural Gas - Shawnee Service Center",
+                    "id": "768",
+                    "address": "1444 N Kickapoo St, Shawnee, OK 74801"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-96.9299482, 35.3461571]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy",
+                    "id": "774",
+                    "address": "388 Park Ave, Warminster, PA 18974"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-75.0902697, 40.1942079]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy",
+                    "id": "776",
+                    "address": "1510 Chester Pike, Eddystone, PA 19022"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-75.3370742, 39.8638682]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy",
+                    "id": "778",
+                    "address": "1050 Swedesford Rd, Berwyn, PA 19312"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-75.463711, 40.062187]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - Phoenixville",
+                    "id": "786",
+                    "address": "1101 W Bridge St, Phoenixville, PA 19460"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-75.5357213, 40.124658]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - Plymouth",
+                    "id": "787",
+                    "address": "680 Ridge Pike, Plymouth Meeting, PA 19462"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-75.3000157, 40.0971089]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "PG&amp;E Grass Valley Service Center",
+                    "id": "792",
+                    "address": "788 Taylorville Rd, Grass Valley, CA 95949"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-121.062113, 39.200615]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "United Parcel Service",
+                    "id": "797",
+                    "address": "4500 Norris Canyon Rd, San Ramon, CA 94583"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-121.9695488, 37.7739234]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "PG&amp;E Santa Cruz Service Center",
+                    "id": "798",
+                    "address": "615 7th Ave, Santa Cruz, CA 95062"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-121.9994241, 36.9692741]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "PG&amp;E Bakersfield Service Center",
+                    "id": "801",
+                    "address": "4101 Wible Rd, Bakersfield, CA 93313"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-119.0394394, 35.316494]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clovis Unified School District",
+                    "id": "804",
+                    "address": "1450 Herndon Ave, Clovis, CA 93611"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-119.6893786, 36.8368683]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "PG&amp;E Fresno Service Center",
+                    "id": "806",
+                    "address": "3754 E California Ave, Fresno, CA 93725"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-119.760617, 36.7213057]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "PG&amp;E Salinas Service Center",
+                    "id": "809",
+                    "address": "390 Griffin St, Salinas, CA 93901"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-121.6409969, 36.6713108]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "PG&amp;E San Carlos Service Center",
+                    "id": "810",
+                    "address": "275 Industrial Way, San Carlos, CA 94070"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-122.2646433, 37.5168491]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "PG&amp;E San Francisco Service Center",
+                    "id": "813",
+                    "address": "536 Treat Ave, San Francisco, CA 94110"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-122.41383, 37.761127]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "PG&amp;E Concord Service Center",
+                    "id": "816",
+                    "address": "1030 Detroit Ave, Concord, CA 94518"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-122.028624, 37.9561459]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "PG&amp;E Hayward Service Center",
+                    "id": "818",
+                    "address": "24300 Clawiter Rd, Hayward, CA 94545"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-122.1182473, 37.6422954]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "PG&amp;E Richmond Service Center",
+                    "id": "826",
+                    "address": "1100 S 27th St, Richmond, CA 94804"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-122.3436004, 37.9163999]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "PG&amp;E San Rafael Service Center",
+                    "id": "827",
+                    "address": "1220 Andersen Dr, San Rafael, CA 94901"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-122.4995062, 37.9511658]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "PG&amp;E Cupertino Service Center",
+                    "id": "828",
+                    "address": "10900 N Blaney Ave, Cupertino, CA 95014"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-122.0227354, 37.3357429]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "PG&amp;E San Jose Service Center",
+                    "id": "829",
+                    "address": "308 Stockton Ave, San Jose, CA 95126"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-121.9058599, 37.3341534]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "PG&amp;E Stockton Service Center",
+                    "id": "832",
+                    "address": "4040 West Ln, Stockton, CA 95204"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-121.2856386, 37.9902936]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "PG&amp;E Santa Rosa Service Center",
+                    "id": "834",
+                    "address": "3965 Occidental Rd, Santa Rosa, CA 95401"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-122.7669412, 38.4286463]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "PG&amp;E Auburn Service Center",
+                    "id": "835",
+                    "address": "333 Sacramento St, Auburn, CA 95603"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-121.0743561, 38.8888727]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "PG&amp;E Davis Service Center",
+                    "id": "836",
+                    "address": "1415 2nd St, Davis, CA 95616"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-121.7331327, 38.5448959]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Sacramento Regional Transit District - Mid Town",
+                    "id": "839",
+                    "address": "1400 29th St, Sacramento, CA 95816"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-121.4703459, 38.5698126]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "PG&amp;E Florin-Perkins Service Center",
+                    "id": "842",
+                    "address": "5555 Florin-Perkins Rd, Sacramento, CA 95826"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-121.388521, 38.526126]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Anderson Union High School District (Private)",
+                    "id": "844",
+                    "address": "1471 Ferry St, Anderson, CA 96007"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-122.3062934, 40.4437761]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "City of Hollywood",
+                    "id": "858",
+                    "address": "1600 S Park Rd, Hollywood, FL 33021"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-80.177819, 25.996703]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "City of Milton",
+                    "id": "864",
+                    "address": "5162 Munson Hwy, Milton, FL 32570"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-86.9929159, 30.6779491]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "TECO Peoples Gas",
+                    "id": "868",
+                    "address": "600 W Robinson St, Orlando, FL 32801"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-81.38651, 28.545239]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "TECO Peoples Gas",
+                    "id": "873",
+                    "address": "15779 W Dixie Hwy, North Miami Beach, FL 33162"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-80.1572166, 25.9202451]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Piedmont Natural Gas - Greenville",
+                    "id": "897",
+                    "address": "100 Woodruff Industrial Ln, Greenville, SC 29607"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-82.3090813, 34.8293078]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "PSNC Energy",
+                    "id": "907",
+                    "address": "2712 Discovery Dr, Raleigh, NC 27616"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-78.593931, 35.861764]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Chula Vista Education Center",
+                    "id": "939",
+                    "address": "84 East J St, Chula Vista, CA 91910"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-117.0580422, 32.631424]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Trillium CNG - San Diego Metropolitan Transit System",
+                    "id": "941",
+                    "address": "3650 Main St, Chula Vista, CA 91911"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-117.0545357, 32.5956928]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "San Diego Gas and Electric - Carlsbad",
+                    "id": "942",
+                    "address": "602 Cannon Rd, Carlsbad, CA 92008"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-117.323524, 33.135328]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Trillium CNG - North County Transit District West",
+                    "id": "944",
+                    "address": "305 Via Del Norte, Oceanside, CA 92058"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-117.3532709, 33.2126847]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Poway Unified School District",
+                    "id": "945",
+                    "address": "13626 Twin Peaks Rd, Poway, CA 92064"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-117.0358683, 32.9787858]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Vista Unified School District",
+                    "id": "947",
+                    "address": "1222 Arcadia Ave, Vista, CA 92084"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-117.2237902, 33.2248873]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "San Diego Gas and Electric Service Center - Miramar Yard",
+                    "id": "951",
+                    "address": "6875 Consolidated Way, San Diego, CA 92121"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-117.16664, 32.87791]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "San Diego Gas and Electric Service Center - San Diego",
+                    "id": "952",
+                    "address": "5488 Overland Ave, San Diego, CA 92123"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-117.13101, 32.833352]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Trillium CNG - San Diego Metropolitan Transit System",
+                    "id": "953",
+                    "address": "4630 Ruffner St, San Diego, CA 92111"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-117.1580509, 32.8247189]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - Waste Management - Moreno Valley",
+                    "id": "982",
+                    "address": "17700 Indian Ave, Moreno Valley, CA 92551"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-117.232, 33.86373]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - Los Angeles County Metropolitan Transportation Authority - Division 10",
+                    "id": "990",
+                    "address": "742 N Mission Rd, Los Angeles, CA 90033"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-118.220154, 34.056631]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - Santa Monica SoCal Gas Station",
+                    "id": "995",
+                    "address": "1701 Stewart St, Santa Monica, CA 90404"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-118.466894, 34.031049]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - LA County Sanitation District",
+                    "id": "997",
+                    "address": "13130 Crossroads Pkwy S, City of Industry, CA 91746"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-118.01633, 34.027723]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "SoCalGas - Pico Rivera Base",
+                    "id": "1000",
+                    "address": "8101 S Rosemead Blvd, Pico Rivera, CA 90660"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-118.1074747, 33.9682324]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "SoCalGas - San Pedro Base",
+                    "id": "1002",
+                    "address": "755 W Capitol Dr, Los Angeles, CA 90731"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-118.2940129, 33.7582563]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - Los Angeles County Metropolitan Transportation Authority - Division 15",
+                    "id": "1005",
+                    "address": "11900 Branford St, Sun Valley, CA 91352"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-118.391859, 34.256511]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "SoCalGas - Van Nuys Base",
+                    "id": "1006",
+                    "address": "16645 Saticoy St, Los Angeles, CA 91406"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-118.496549, 34.208433]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "City of Covina - City Corporate Yard",
+                    "id": "1009",
+                    "address": "534 N Barranca Ave, Covina, CA 91723"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-117.8809546, 34.0914803]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - Los Angeles County Metropolitan Transportation Authority - Division 8",
+                    "id": "1010",
+                    "address": "9201 Canoga Ave, Chatsworth, CA 91311"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-118.597577, 34.237277]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Titan NGV Fueling - South Coast Air Quality Management District",
+                    "id": "1013",
+                    "address": "21865 Copley Dr, Diamond Bar, CA 91765"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-117.8290451, 34.002107]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "SunLine Transit Agency",
+                    "id": "1014",
+                    "address": "32505 Harry Oliver Trail, Thousand Palms, CA 92276"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-116.3942833, 33.8153399]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "SoCalGas - Riverside Base",
+                    "id": "1016",
+                    "address": "3077 Cottage St, Riverside, CA 92507"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-117.3717878, 33.9715119]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "SoCalGas - Garden Grove Base",
+                    "id": "1017",
+                    "address": "12698 Industry St, Garden Grove, CA 92841"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-118.0080862, 33.7790945]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Trillium CNG - Orange County Transportation Authority - Garden Grove",
+                    "id": "1019",
+                    "address": "11790 Cardinal Pl, Garden Grove, CA 92843"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-117.9240767, 33.7650227]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - Irvine City Yard",
+                    "id": "1022",
+                    "address": "6427 Oak Canyon, Irvine, CA 92618"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-117.7648651, 33.6757665]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "SoCalGas - Oxnard Base",
+                    "id": "1025",
+                    "address": "1650 Patton Ct, Oxnard, CA 93030"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-119.1611608, 34.1916135]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - JB Dewar Inc",
+                    "id": "1029",
+                    "address": "75 Prado Rd, San Luis Obispo, CA 93401"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-120.670939, 35.254197]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Antelope Valley School Bus Transit",
+                    "id": "1032",
+                    "address": "670 West Ave L-8, Lancaster, CA 93534"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-118.142653, 34.653024]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Arkansas Oklahoma Gas Corp",
+                    "id": "1034",
+                    "address": "5030 South S St, Fort Smith, AR 72903"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-94.373159, 35.361616]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Sun Metro",
+                    "id": "1036",
+                    "address": "700 San Francisco Ave, El Paso, TX 79901"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-106.4958622, 31.757389]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "City of Phoenix - Salt River Service Center",
+                    "id": "1062",
+                    "address": "3045 S 22nd Ave, Phoenix, AZ 85015"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-112.1063063, 33.4842562]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "City of Scottsdale",
+                    "id": "1070",
+                    "address": "9191 E San Salvador Dr, Scottsdale, AZ 85258"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-111.8824619, 33.5688707]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Southwest Gas Corp",
+                    "id": "1078",
+                    "address": "3401 E Gas Rd, Tucson, AZ 85714"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-110.9189284, 32.1678088]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "City of Tucson Fleet Service",
+                    "id": "1079",
+                    "address": "4004 S Park Ave, Tucson, AZ 85714"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-110.9566808, 32.1760988]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - RTC Losee",
+                    "id": "1083",
+                    "address": "3333 Losee Rd, North Las Vegas, NV 89124"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-115.125548, 36.220571]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Virginia Natural Gas - Lance Rd",
+                    "id": "1108",
+                    "address": "1184 Lance Rd, Norfolk, VA 23502"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-76.2177442, 36.864734]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Virginia Natural Gas - VNG Office",
+                    "id": "1110",
+                    "address": "746 Diligence Dr, Newport News, VA 23606"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-76.463109, 37.083017]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Montgomery County Agencies - Fleet Management Services",
+                    "id": "1130",
+                    "address": "17000 Crabbs Branch Way, Gaithersburg, MD 20855"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-77.1709234, 39.1323079]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Johnson Bus",
+                    "id": "1154",
+                    "address": "1208 E Green Bay St, Shawano, WI 54166"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-88.586015, 44.77953]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Cadott Schools",
+                    "id": "1155",
+                    "address": "466 E Mills St, Cadott, WI 54727"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-91.145971, 44.9518329]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Falcon Fuel",
+                    "id": "1186",
+                    "address": "2400 E College Ave, Cudahy, WI 53110"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-87.879766, 42.930379]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Double Three Transportation Co",
+                    "id": "1193",
+                    "address": "1280 Farmco Ln, Fort Atkinson, WI 53538"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-88.854473, 42.904846]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Avista Pullman Service Center",
+                    "id": "1200",
+                    "address": "5702 State Route 270, Pullman, WA 99163"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-117.0952254, 46.7299175]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Avista Central Operating Facility",
+                    "id": "1201",
+                    "address": "1411 E Mission Ave, Spokane, WA 99202"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-117.3886669, 47.6734481]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Avista Clarkston Service Center",
+                    "id": "1202",
+                    "address": "1330 Fair St, Clarkston, WA 99403"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-117.0604367, 46.42176]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Memphis Light, Gas and Water - North CNG Center",
+                    "id": "1215",
+                    "address": "1130 Tupelo St, Memphis, TN 38108"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-89.9727942, 35.1668822]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - Lindbergh Field Shell",
+                    "id": "1226",
+                    "address": "2521 Pacific Hwy, San Diego, CA 92101"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-117.1735774, 32.7298717]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - Los Angeles County Metropolitan Transportation Authority - Division 18",
+                    "id": "1236",
+                    "address": "450 W Griffith St, Gardena, CA 90745"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-118.281006, 33.859921]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Clean Energy - Los Angeles International Airport",
+                    "id": "1251",
+                    "address": "10400 Aviation Blvd, Los Angeles, CA 90045"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-118.37801, 33.941659]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Nassau Inter-County Express",
+                    "id": "1252",
+                    "address": "700 Commercial Ave, Garden City, NY 11530"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-73.6044816, 40.7306169]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Montgomery County Transit",
+                    "id": "1253",
+                    "address": "16624 Crabbs Branch Way, Derwood, MD 20855"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-77.1616516, 39.1235653]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Oklahoma Natural Gas - Okmulgee Service Center",
+                    "id": "1264",
+                    "address": "2018 S Wood Dr, Okmulgee, OK 74447"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-95.9625033, 35.6022883]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Levolor",
+                    "id": "1270",
+                    "address": "1300 W 3300 S, Ogden, UT 84401"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-112.0112139, 41.2051781]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Fur Breeders Co-op",
+                    "id": "1284",
+                    "address": "150 N 1000 W, Logan, UT 84321"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-111.8596451, 41.7346843]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Washington Elementary School District",
+                    "id": "1286",
+                    "address": "12641 N 39th Ave, Phoenix, AZ 85029"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-112.1419547, 33.6013089]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Paradise Valley School District",
+                    "id": "1287",
+                    "address": "20621 N 32nd St, Phoenix, AZ 85050"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-112.0134135, 33.673823]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Chesapeake Utilities",
+                    "id": "1294",
+                    "address": "350 S Queen St, Dover, DE 19904"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-75.5290012, 39.1551935]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Metropolitan Atlanta Rapid Transit Authority",
+                    "id": "1332",
+                    "address": "1600 Perry Blvd NW, Atlanta, GA 30318"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-84.441371, 33.7898163]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "PG&amp;E Chico Service Center",
+                    "id": "1347",
+                    "address": "11239 Midway, Chico, CA 95928"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-121.8120554, 39.7113071]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "PG&amp;E Vacaville Service Center",
+                    "id": "1349",
+                    "address": "158 Peabody Rd, Vacaville, CA 95687"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-121.9776818, 38.3507074]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Unitrans Shop",
+                    "id": "1350",
+                    "address": "800 Garrod Dr, Davis, CA 95616"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-121.76, 38.53205]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "SunLine Transit Agency",
+                    "id": "1352",
+                    "address": "83255 Highway 111, Indio, CA 92201"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-116.2117268, 33.7145462]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "SoCalGas - Energy Resource Center",
+                    "id": "1353",
+                    "address": "9240 E Firestone Blvd, Downey, CA 90241"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-118.1190415, 33.9324927]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Trillium CNG - Southern California Gas Co",
+                    "id": "1354",
+                    "address": "1919 S State College Blvd, Anaheim, CA 92806"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-117.8896324, 33.8010128]
+                  }
+                },
+                
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "station_name": "Riverside Transit Agency",
+                    "id": "1357",
+                    "address": "1825 3rd St, Riverside, CA 92507"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [-117.3509482, 33.9834686]
+                  }
+                }
+                
+              ]
+            };
+            var dataLayer = L.geoJson(data, {
+                onEachFeature: function(feature, layer) {
+                    layer.bindPopup(
+                        '<a href="' + feature.properties.id + '/">' +
+                            feature.properties.station_name +
+                        '</a><br>' + feature.properties.address
+                    );
+                }
+            });
+            map.addLayer(dataLayer);
+        </script>
+    </body>
+</html>
