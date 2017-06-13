@@ -13,9 +13,9 @@ owner_codes = {
 }
 
 fuel_type_codes = {
-    'BD' : 'Biodiesel (B20 and above)',
+    'BD' : 'Biodiesel',
     'CNG' : 'Compressed Natural Gas',
-    'E85' : 'Ethanol (E85)',
+    'E85' : 'Ethanol',
     'ELEC' : 'Electric',
     'HY' : 'Hydrogen',
     'LNG' : 'Liquefied Natural Gas',
@@ -46,9 +46,36 @@ def get_stations(num):
     url = 'https://developer.nrel.gov/api/alt-fuel-stations/v1.json'
     payload = {
         'api_key' : API_KEY,
-        'limit' : num
+    }
+
+    if (num <= 200):
+        payload['limit'] = num
+
+    r = requests.get(url, params=payload)
+    data = r.json()
+    p_data = parse_codes(data['fuel_stations'])
+    return p_data
+
+def get_by_zip(zip_code):
+    url = 'https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json'
+    payload = {
+        'api_key' : API_KEY,
+        'location' : zip_code
     }
     r = requests.get(url, params=payload)
     data = r.json()
-    s_data = parse_codes(data['fuel_stations'])
-    return s_data
+    p_data = parse_codes(data['fuel_stations'])
+    num_results = data['total_results']
+    latitude = data['latitude']
+    longitude = data['longitude']
+    return [p_data, {'num_result' : num_results, 'lat' : latitude, 'long' : longitude}]
+
+def get_by_id(id):
+    url = 'https://developer.nrel.gov/api/alt-fuel-stations/v1/{}.json'.format(id)
+    payload = {
+        'api_key' : API_KEY,
+    }
+    r = requests.get(url, params=payload)
+    data = r.json()
+    p_data = parse_codes([data['alt_fuel_station']])
+    return p_data
