@@ -23,11 +23,11 @@ def detail(row_id):
 
 @app.route('/search/')
 def search():
-    zip_code = request.args.get('search')
-    if zip_code == '':
+    location = request.args.get('search')
+    if location == '':
         abort(404)
     template = 'search.html'
-    raw_object = client.get_by_zip(zip_code)
+    raw_object = client.get_by_location(location)
     object_list = raw_object[0]
     search_results = raw_object[1]
     return render_template(template, object_list=object_list, data=search_results)

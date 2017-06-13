@@ -56,11 +56,11 @@ def get_stations(num):
     p_data = parse_codes(data['fuel_stations'])
     return p_data
 
-def get_by_zip(zip_code):
+def get_by_location(location):
     url = 'https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json'
     payload = {
         'api_key' : API_KEY,
-        'location' : zip_code
+        'location' : location
     }
     r = requests.get(url, params=payload)
     data = r.json()
