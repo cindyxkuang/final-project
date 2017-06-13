@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+        <link rel= "stylesheet" href= "{{ url_for('static', filename='style.css') }}">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"
             integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ=="
             crossorigin=""/>
@@ -11,7 +11,9 @@
     </head>
     <body>
         <div id="map" style="width:100%; height:500px;"></div>
-        <h1>(ID#{{ object.id }}) {{ object.station_name }} was opened {{ object.open_date }} and is {{ object.owner_type_code|lower }}</h1>
+        <header>
+            <h1>{{ object.station_name }} (ID #{{ object.id }}) was opened {{ object.open_date }} and is {{ object.owner_type_code|lower }}.</h1>
+        </header>
         <div>
             This is a {{ object.status_code|lower }} station. It is located at {{ object.street_address }}, {{ object.city }}, {{ object.state }} {{ object.zip }} 
             and provides {{ object.fuel_type_code }}.
